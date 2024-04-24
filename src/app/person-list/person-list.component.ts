@@ -60,10 +60,12 @@ export class PersonListComponent implements OnInit {
       const index = this.persons.findIndex(person => person === this.selectedPerson);
       if (index !== -1) {
         this.persons[index] = this.personForm.value;
+        alert("Profile Uptedeted sucssesfully!!")
       }
       this.selectedPerson = null;
     } else {
-      this.persons.push(this.personForm.value);
+      this.persons.unshift(this.personForm.value);
+      alert("Profile Submited sucssesfully!!")
     }
     this.personForm.reset();
   }
