@@ -1,0 +1,56 @@
+<form [formGroup]="personForm" >
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" formControlName="name">
+    
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" formControlName="email">
+      
+    </div>
+    <div>
+      <label for="dol">Date of Birth:</label>
+      <input type="date" id="dol" name="dol" formControlName="dol">
+ 
+    </div>
+    <div>
+      <label for="avatar">Avatar:</label>
+      <input type="text" id="avatar" name="avatar" formControlName="avatar">
+    
+    </div>
+    <div>
+      <label for="country">Country:</label>
+      <input type="text" id="country" name="country" formControlName="country">
+
+    </div>
+    <button type="submit"  (click)="submitForm()">Submit</button>
+  </form>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <div class="input-group mb-3">
+        <input type="text" placeholder="Search by name" [(ngModel)]="searchText" class="form-control">
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <div class="person-list-container"> <!-- Add container div -->
+        <div *ngFor="let item of filteredPersons" class="card"> <!-- Loop over filteredPersons -->
+          <div class="card-body">
+            <h5 class="card-title">{{ item.name }}</h5>
+            <p class="card-text">Email: {{ item.email }}</p>
+            <p class="card-text">Age: {{ item.dol | age }}</p>
+            <p class="card-text">Avatar: {{ item.avatar }}</p>
+            <p class="card-text">Country: {{ item.country }}</p>
+            <a href="#" class="btn btn-primary" (click)="edit(item)">Edit</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
