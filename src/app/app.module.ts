@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { PersonListComponent } from './person-list/person-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgePipe } from './age.pipe';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { AgePipe } from './age.pipe';
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule],
+    ReactiveFormsModule,
+    NgbModule],
   providers: [],
   bootstrap: [AppComponent]
 })

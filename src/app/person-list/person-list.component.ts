@@ -54,9 +54,9 @@ export class PersonListComponent implements OnInit {
       country: ['', ]
     });
   }
- 
+  isEdit=false
   submitForm() {
-    if (this.selectedPerson) {
+    if (this.isEdit) {
       const index = this.persons.findIndex(person => person === this.selectedPerson);
       if (index !== -1) {
         this.persons[index] = this.personForm.value;
@@ -76,6 +76,7 @@ export class PersonListComponent implements OnInit {
     );
   }
   edit(data: any) {
+    this.isEdit=true
     this.selectedPerson = data;
     this.personForm.patchValue({
       name: data.name,

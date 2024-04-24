@@ -1,4 +1,10 @@
+<div class="mt-4">
+    <div class="container ">
+    <p class="text-center text-warning">This web application only make using json data no API used</p>
 <form [formGroup]="personForm" >
+    <div class="container ">
+        <h3 class="text-center">Profile</h3>
+         </div>
     <div>
       <label for="name">Name:</label>
       <input type="text" id="name" name="name" formControlName="name">
@@ -26,11 +32,12 @@
     </div>
     <button type="submit"  (click)="submitForm()">Submit</button>
   </form>
+</div>
 
-
-<div class="container">
+<div class="container-fluid mx-10">
   <div class="row">
-    <div class="col-md-6 mx-auto">
+    <h2>List Of Profile</h2>
+    <div class="col-md-4 mx-5">
       <div class="input-group mb-3">
         <input type="text" placeholder="Search by name" [(ngModel)]="searchText" class="form-control">
       </div>
@@ -38,19 +45,18 @@
   </div>
 
   <div class="row">
-    <div class="col-md-6 mx-auto">
-      <div class="person-list-container"> <!-- Add container div -->
-        <div *ngFor="let item of filteredPersons" class="card"> <!-- Loop over filteredPersons -->
+        <div *ngFor="let item of filteredPersons" class="card col-md-2"> <!-- Loop over filteredPersons -->
           <div class="card-body">
+            <p class="card-text"><img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle cm" style="width: 150px;"
+                alt="Avatar" /></p>
             <h5 class="card-title">{{ item.name }}</h5>
             <p class="card-text">Email: {{ item.email }}</p>
             <p class="card-text">Age: {{ item.dol | age }}</p>
-            <p class="card-text">Avatar: {{ item.avatar }}</p>
+
             <p class="card-text">Country: {{ item.country }}</p>
             <a href="#" class="btn btn-primary" (click)="edit(item)">Edit</a>
           </div>
-        </div>
+  
       </div>
     </div>
-  </div>
 </div>
